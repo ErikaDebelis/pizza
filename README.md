@@ -80,6 +80,7 @@ PizzaPlanet.prototype.customizePizza = function () {
 };
 Output: Pizza { }
 
+1. create a constructor 
 _Describe UI logic for pizza()_
 
 ## Bugs
