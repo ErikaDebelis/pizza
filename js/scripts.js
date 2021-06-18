@@ -18,7 +18,7 @@ function CreatePizza () {
 function Pizza (pizza, size, toppings) {
   Size(pizza,size) 
   Toppings(pizza, toppings)
-  const finalPizza = Pizza.cost;
+  const finalPizza = pizza.finalCost;
 
   return finalPizza;
 }
@@ -30,36 +30,23 @@ function Toppings (pizza, toppings) {
   pizza.toppings= toppings;
 }
 
-// function Cost (pizza) {
-//   if (pizza.size ==="small") {
-//     pizza.cost = pizza.cost - 3;
-//   }
-//   if (pizza.size ==="large") {
-//     pizza.cost = pizza.cost + 4;
-//   }
-//   if (pizza.toppings === "meatlovers") {
-//     pizza.cost = pizza.cost + 5;
-//   }
-//   if (pizza.toppings === "veggie") {
-//     pizza.cost = pizza.cost + 2;
-//   }
-//   return pizza;
-// }
-Pizza.prototype.cost = function () {
-  let totalCost = 0
+function Cost (pizza) {
+  this.pizza = pizza;
+}
+Cost.prototype.finalCost = function () {
   if (pizza.size ==="small") {
-    totalCost = pizza.cost - 3;
+    this.finalCost -= 3;
   }
   if (pizza.size ==="large") {
-    totalCost = pizza.cost + 4;
+    this.finalCost += 4;
   }
   if (pizza.toppings === "meatlovers") {
-    totalCost = pizza.cost + 5;
+    this.finalCost += 5;
   }
   if (pizza.toppings === "veggie") {
-    totalCost = pizza.cost + 2;
+    this.finalCost += 2;
   }
-  return pizza;
+  return this.finalCost;
 }
 
 
@@ -92,3 +79,22 @@ $(document).ready(function() {
   $("#cost").text(pizza.cost);
   });
 });
+
+
+
+
+
+// function Cost (pizza) {
+//   if (pizza.size ==="small") {
+//     pizza.cost = pizza.cost - 3;
+//   }
+//   if (pizza.size ==="large") {
+//     pizza.cost = pizza.cost + 4;
+//   }
+//   if (pizza.toppings === "meatlovers") {
+//     pizza.cost = pizza.cost + 5;
+//   }
+//   if (pizza.toppings === "veggie") {
+//     pizza.cost = pizza.cost + 2;
+//   }
+//   return pizza;
