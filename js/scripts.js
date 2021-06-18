@@ -5,24 +5,20 @@
 
 
 // Business Logic for objects
-function CreatePizza () {
-  let pizza = {
-    size: "",
-    toppings: "",
-    cost: 13
-  };
-
-  return pizza;
-  //this.currentID = 0; //needed? i think so- need to keep track of pizzas 'added to cart'
+function Pizza (size, toppings) {
+  this.pizza= {};
+  this.chosenSize= size;
+  this.chosenToppings= toppings;
+  this.cost= 13;
 }
-function Pizza (pizza, size, toppings) {
-  Size(pizza,size) 
-  Toppings(pizza, toppings)
-  const finalPizza = pizza.finalCost;
+// function Pizza (pizza, size, toppings) {
+//   Size(pizza,size) 
+//   Toppings(pizza, toppings)
+//   const finalPizza = pizza.cost;
 
-  return finalPizza;
-}
-
+//   return finalPizza;
+// }
+const customPizza = new Pizza(this.pizza, this.chosenSize, this.chosenToppings);
 function Size (pizza, size) {
   pizza.size= size;
 }
@@ -30,42 +26,42 @@ function Toppings (pizza, toppings) {
   pizza.toppings= toppings;
 }
 
-function Cost (pizza) {
-  this.pizza = pizza;
-}
-Cost.prototype.finalCost = function () {
+// function Cost (pizza, pizzaCost) {
+//   pizza.cost= pizzaCost
+//   // pizza.cost = pizzaCost;
+Pizza.prototype.finalCost = function () {
   if (pizza.size ==="small") {
-    this.finalCost -= 3;
+    this.cost -= 3;
   }
   if (pizza.size ==="large") {
-    this.finalCost += 4;
+    pizza.cost += 4;
   }
   if (pizza.toppings === "meatlovers") {
-    this.finalCost += 5;
+    this.cost += 5;
   }
   if (pizza.toppings === "veggie") {
-    this.finalCost += 2;
+    this.cost += 2;
   }
-  return this.finalCost;
+  return this.cost;
 }
 
 
 // UI Logic
-let pizzaObject = CreatePizza(); // created our pizza object
+// let pizzaObject = Pizza(); // created our pizza object
 
 //got the values from our user
 let chosenSize = $("input:radio[name=size]:checked").val();
 let chosenToppings = $("#toppings").val();
 
 //passing in our object and user values to manipulate them 
-let pizza = new Pizza(pizzaObject, chosenSize, chosenToppings);
+let pizza = new Pizza(customPizza, chosenSize, chosenToppings);
 
 
 // let newPizza = new Pizza(pizza.chosenSize, pizza.chosenToppings, totalCost);console.log(pizza);
 
 $(document).ready(function() {
   $("#pizza-input").click(function(event) {
-   let pizzaObject = CreatePizza(); // created our pizza object
+   let pizzaObject = Pizza(); // created our pizza object
 //got the values from our user
   let chosenSize = $("input:radio[name=size]:checked").val();
   let chosenToppings = $("#toppings").val();
@@ -82,7 +78,14 @@ $(document).ready(function() {
 
 
 
+// function CreatePizza () {
+//   let pizza = {
+//     size: "",
+//     toppings: "",
+//     cost: 13
+//   };
 
+//   return pizza;
 
 // function Cost (pizza) {
 //   if (pizza.size ==="small") {
