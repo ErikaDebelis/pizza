@@ -9,10 +9,10 @@ function PizzaPlanet () {
   this.pizza = {};
   this.currentID = 0; //needed? i think so- need to keep track of pizzas 'added to cart'
 }
-function Pizza (size, toppings, totalCost) {
+function Pizza (size, toppings) {
   this.chosenSize= size;
   this.chosenToppings= toppings;
-  this.totalCost= 0;
+  this.cost= 13;
 }
 //Business logic for pizza
 PizzaPlanet.prototype.addPizza = function (pizza) {
@@ -24,18 +24,19 @@ PizzaPlanet.prototype.assignPizzaId = function () {
   return this.currentID;
 }
 PizzaPlanet.prototype.customizePizza = function () {
-  this.cost = 13;
-  if (chosenSize ==="small") {
-    this.totalCost === this.cost - 3;
-  }
-  if (chosenSize ==="large") {
-    this.totalCost === this.cost + 4;
-  }
-  if (chosenToppings === "meatlovers") {
-    this.totalCost === this.cost + 5;
-  }
-  if (chosenToppings === "veggie") {
-    this.totalCost === this.cost + 2;
+  this.totalCost= function() {
+    if (chosenSize ==="small") {
+      return this.totalCost === this.cost - 3;
+    }
+    if (chosenSize ==="large") {
+      return this.totalCost === this.cost + 4;
+    }
+    if (chosenToppings === "meatlovers") {
+      return this.totalCost === this.cost + 5;
+    }
+    if (chosenToppings === "veggie") {
+      return this.totalCost === this.cost + 2;
+    }
   }
 };
 
@@ -47,7 +48,7 @@ let pizza = new Pizza();
 
 pizza.chosenSize = $("input:radio[name=size]:checked").val();
 pizza.chosenToppings = $("#toppings").val();
-let newPizza = new Pizza(pizza.chosenSize, pizza.chosenToppings);
+let newPizza = new Pizza(pizza.chosenSize, pizza.chosenToppings, totalCost);
 console.log(pizza.chosenSize);
 
 $(document).ready(function() {
@@ -55,5 +56,8 @@ $(document).ready(function() {
   event.preventDefault();
   newPizza.customizePizza();
   PizzaPlanet.addPizza(newPizza);
-  }
+  $("#size").text(pizza.chosenSize);
+  $("#toppings").text(pizza.chosenToppings);
+  $("#cost").text(newPizza.totalCost);
+  });
 });
