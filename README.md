@@ -1,5 +1,5 @@
 # __Pizza Planet__
-## co-authored by Erika Debelis
+## Authored by Erika Debelis
 
 ### __Description__
 'Pizza Planet' is a website for a greek-style pizza restaurant. The customer builds their custom pizza; choosing the size and toppings for their pie.
