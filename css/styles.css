@@ -1,0 +1,12 @@
+body {
+  background-image: url(/images/pizza-planet-background.jpg);
+}
+.centered-image {
+  margin: auto;
+  width: fit-content;
+  height: auto;
+  display: block;
+}
+.centered-text {
+  text-align: center;
+}

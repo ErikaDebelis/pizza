@@ -23,16 +23,16 @@ Alternately, visit https://erikadebelis.github.io/pizza/
 
 ### __Tests/Specifications__
 
-Describe PizzaPlanet()
+_Describe PizzaPlanet()_
 
-Test: Create a constructor for an empty PizzaPlanet object that will hold an empty pizza array to eventually add to + currentId to keep track of pizzas eventually added to cart
+1. Test: Create a constructor for an empty PizzaPlanet object that will hold an empty pizza array to eventually add to + currentId to keep track of pizzas eventually added to cart
 Code: 
 function PizzaPlanet () {
   this.pizza = {};
   this.currentID = 0;
 Expected Output: PizzaPlanet{ } 
 
-Test: Create a constructor for pizzas that will hold the ways the customer can customize the pizza (by size and toppings)
+2. Test: Create a constructor for pizzas that will hold the ways the customer can customize the pizza (by size and toppings)
 Code: 
 function Pizza (size, toppings) {
   this.chosenSize= size;
@@ -40,13 +40,48 @@ function Pizza (size, toppings) {
 }
 Output: Pizza { }
 
-Test: Create a prototype for pizzas that will create a custom method which then adds the customized pizza to cart and assigns ID
+
+_Describe Pizza ()_
+
+1. Test: Create a prototype for pizzas that will create a custom method which then adds the customized pizza to cart 
 Code: 
 PizzaPlanet.prototype.addPizza = function (pizza) {
   pizza.id = this.assignPizzaId();
   this.pizzas[pizza.id] = pizza;
 }
 Output: Pizza { }
+
+
+2. Test: Create a prototype for pizzas that will create a custom method which then assigns an ID to the customized pizza in the cart
+Code: 
+PizzaPlanet.prototype.assignPizzaId = function () {
+  this.currentID += 1;
+  return this.currentID;
+}
+Output: Pizza { }
+
+
+3. Test: Create a prototype for pizzas that will create the formula for which the pricing is determined for the custom pizza based on the size and topping selections made
+Code: 
+PizzaPlanet.prototype.customizePizza = function () {
+  this.cost = 13;
+  if (chosenSize ==="small") {
+    this.cost -= 3;
+  }
+  if (chosenSize ==="large") {
+    this.cost += 4;
+  }
+  if (chosenToppings === "meatlovers") {
+    this.cost += 5;
+  }
+  if (chosenToppings === "veggie") {
+    this.cost += 2;
+  }
+};
+Output: Pizza { }
+
+4. 
+
 ## Bugs
 
 _no known bugs at this time_
