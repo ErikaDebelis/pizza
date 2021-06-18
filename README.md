@@ -80,7 +80,7 @@ PizzaPlanet.prototype.customizePizza = function () {
 };
 Output: Pizza { }
 
-4. 
+_Describe UI logic for pizza()_
 
 ## Bugs
 
