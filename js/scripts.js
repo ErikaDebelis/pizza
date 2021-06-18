@@ -18,7 +18,7 @@ function CreatePizza () {
 function Pizza (pizza, size, toppings) {
   Size(pizza,size) 
   Toppings(pizza, toppings)
-  var finalPizza = Cost(pizza)
+  const finalPizza = Pizza.cost;
 
   return finalPizza;
 }
@@ -30,48 +30,37 @@ function Toppings (pizza, toppings) {
   pizza.toppings= toppings;
 }
 
-function Cost (pizza) {
+// function Cost (pizza) {
+//   if (pizza.size ==="small") {
+//     pizza.cost = pizza.cost - 3;
+//   }
+//   if (pizza.size ==="large") {
+//     pizza.cost = pizza.cost + 4;
+//   }
+//   if (pizza.toppings === "meatlovers") {
+//     pizza.cost = pizza.cost + 5;
+//   }
+//   if (pizza.toppings === "veggie") {
+//     pizza.cost = pizza.cost + 2;
+//   }
+//   return pizza;
+// }
+Pizza.prototype.cost = function () {
+  let totalCost = 0
   if (pizza.size ==="small") {
-    pizza.cost = pizza.cost - 3;
+    totalCost = pizza.cost - 3;
   }
   if (pizza.size ==="large") {
-    pizza.cost = pizza.cost + 4;
+    totalCost = pizza.cost + 4;
   }
   if (pizza.toppings === "meatlovers") {
-    pizza.cost = pizza.cost + 5;
+    totalCost = pizza.cost + 5;
   }
   if (pizza.toppings === "veggie") {
-    pizza.cost = pizza.cost + 2;
+    totalCost = pizza.cost + 2;
   }
   return pizza;
 }
-
-//Business logic for pizza
-// PizzaPlanet.prototype.addPizza = function (pizza) {
-//   pizza.id = this.assignPizzaId();
-//   this.pizzas[pizza.id] = pizza;
-// }
-// PizzaPlanet.prototype.assignPizzaId = function () {
-//   this.currentID += 1;
-//   return this.currentID;
-// }
-// PizzaPlanet.prototype.customizePizza = function () {
-//   this.totalCost= 0;
-//     if (chosenSize ==="small") {
-//       return this.totalCost = this.cost - 3;
-//     }
-//     if (chosenSize ==="large") {
-//       return this.totalCost = this.cost + 4;
-//     }
-//     if (chosenToppings === "meatlovers") {
-//       return this.totalCost === this.cost + 5;
-//     }
-//     if (chosenToppings === "veggie") {
-//       return this.totalCost === this.cost + 2;
-//     }
-// }
-
-
 
 
 // UI Logic
@@ -97,11 +86,9 @@ $(document).ready(function() {
 //passing in our object and user values to manipulate them 
   let pizza = new Pizza(pizzaObject, chosenSize, chosenToppings);
   event.preventDefault();
-  console.log(pizza);
-  // newPizza.customizePizza();
-  // PizzaPlanet.addPizza(newPizza);
-  // $("#size").text(pizza.chosenSize);
-  // $("#toppings").text(pizza.chosenToppings);
-  // $("#cost").text(newPizza.totalCost);
+
+  $("#size").text(pizza.size);
+  $("#toppings").text(pizza.toppings);
+  $("#cost").text(pizza.cost);
   });
 });
