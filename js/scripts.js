@@ -4,7 +4,7 @@ function Pizza (size, toppings, cost) {
   this.toppings = toppings;
   this.cost = cost;
 }
-
+//pizza prototype for cost formula
 Pizza.prototype.finalCost = function () {
   if (this.size ==="small") {
     this.cost -= 3;
@@ -23,21 +23,13 @@ Pizza.prototype.finalCost = function () {
 //UI Logic
 $(document).ready(function() {
   $("#pizza-input").click(function(event) {
-
     let chosenSize = $("input:radio[name=size]:checked").val();
-let chosenToppings = $("#toppings").val();
-
-let pizza = new Pizza(chosenSize, chosenToppings, 13);
-pizza.finalCost();
-
-  event.preventDefault();
-  console.log(pizza);
-
-  console.log();
-
-  $("#size").html(pizza.size);
-  $("#toppings").html(pizza.toppings);
-  $("#cost").text(pizza.cost);
-
+    let chosenToppings = $("#toppings").val();
+    let pizza = new Pizza(chosenSize, chosenToppings, 13);
+    pizza.finalCost();
+    event.preventDefault();
+    $("#size").html(pizza.size);
+    $("#toppings").html(pizza.toppings);
+    $("#cost").text(pizza.cost);
   });
 });

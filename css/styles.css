@@ -1,5 +1,5 @@
 body {
-  background-image: url(pizza/images/pizza-planet-background.jpg);
+  background-image: url(https://planetarium.truman.edu/files/2017/10/Space-background.jpg);
 }
 .centered-image {
   margin: auto;
@@ -9,4 +9,15 @@ body {
 }
 .centered-text {
   text-align: center;
+}
+.container {
+  color: azure;
+}
+.col-sm-3 {
+  background-color: azure;
+  font-weight: bolder;
+}
+.col-sm-20 {
+  text-decoration-style: wavy;
+  font-weight: bolder;
 }
