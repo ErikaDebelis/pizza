@@ -1,4 +1,4 @@
-// Business Logic for objects
+// Constructor for pizza
 function Pizza (size, toppings, cost) {
   this.size = size;
   this.toppings = toppings;
@@ -24,12 +24,12 @@ Pizza.prototype.finalCost = function () {
 $(document).ready(function() {
   $("#pizza-input").click(function(event) {
     let chosenSize = $("input:radio[name=size]:checked").val();
-    let chosenToppings = $("#toppings").val();
+    let chosenToppings = $("option.toppings:selected").val();
     let pizza = new Pizza(chosenSize, chosenToppings, 13);
     pizza.finalCost();
     event.preventDefault();
-    $("#size").html(pizza.size);
-    $("#toppings").html(pizza.toppings);
+    $("#pizzaSize").text(chosenSize);
+    $("#toppings").text(chosenToppings);
     $("#cost").text(pizza.cost);
   });
 });
