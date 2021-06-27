@@ -25,52 +25,80 @@ Alternately, visit https://erikadebelis.github.io/pizza/
 
 _Describe Pizza()_
 
-1. Test: Create a constructor for an empty Pizza object.
+1. Test: Create a constructor for Pizza and take in the users selections and initialize a new pizza.
 Code: 
+
         let pizza = new Pizza(size: "large", toppings:"meatlovers")
+
 Expected Output: 
+
         Pizza{ } 
 
-2. Test: Create a constructor for pizzas that will hold the ways the customer can customize the pizza (by size and toppings) and define the base cost for a pizza as 13.
+2. Test: Take in the users selections and initialize a new pizza that will hold the ways the customer can customize the pizza (by size and toppings) and define the base cost for a pizza as 13.
 Code: 
+
         let pizza = new Pizza(size: "large", toppings:"meatlovers")
+
 Expected Output: 
+
         Pizza{size: "large", toppings:"meatlovers", cost: 13} 
 
 _Describe Pizza.prototype.finalCost = function () {_
 
 1. Test: Create a prototype for pizza's final cost. (no logic/ cost formula created yet).
-Code: 
+Code:
+
         let pizza = new Pizza(size: "large", toppings:"margherita")
+
 Expected Output: 
+
         Pizza {size: "large", toppings:"margherita", cost: 13}
 
-2. Test: Add logic and create branching statements for finalCost prototype that will determine the cost based on the size and topping selections made. Testing to see if price will increase based on large size input alone.
+2. Test: Add logic and create branching statements for finalCost prototype that will determine the cost based on the size and topping selections made. Testing if price will increase based on large size input alone as expected.
+
 Code: 
+
         let pizza = new Pizza(size: "large", toppings:"margherita")
+
           pizza.finalCost()
+
 Expected Output: 
+
         Pizza {size: "large", toppings:"margherita", cost: 17}
 
-3. Test: Testing to see if price will increase based on toppings input alone.
+3. Test: Testing if price will increase based on toppings input alone as expected.
 Code:
+
         let pizza = new Pizza(size: "medium", toppings:"veggie")
+
           pizza.finalCost()
+
 Expected Output: 
+
         Pizza {size: "medium", toppings:"veggie", cost: 15}
 
-4. Test: Testing to see if price will decrease based on small size input.
+4. Test: Testing if price will decrease based on small size input as expected.
+
 Code: 
+
         let pizza = new Pizza(size: "small", toppings:"margherita")
+
           pizza.finalCost()
+
 Expected Output: 
+
         Pizza {size: "small", toppings:"margherita", cost: 10}
 
-5. Test: Testing to see if price will decrease based on small size input and increase from topping selection.
+5. Test: Testing if price will decrease based on small size input and increase from topping selection as expected.
+
 Code: 
+
         let pizza = new Pizza(size: "small", toppings:"veggie")
+
           pizza.finalCost()
+
 Expected Output: 
+
         Pizza {size: "small", toppings:"veggie", cost: 12}
 
 ## Bugs
