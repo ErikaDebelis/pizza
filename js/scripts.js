@@ -1,8 +1,8 @@
 // Constructor for pizza
-function Pizza (size, toppings, cost) {
+function Pizza (size, toppings) {
   this.size = size;
   this.toppings = toppings;
-  this.cost = cost;
+  this.cost = 13;
 }
 //pizza prototype for cost formula
 Pizza.prototype.finalCost = function () {
@@ -19,13 +19,12 @@ Pizza.prototype.finalCost = function () {
     this.cost += 2;
   }
 }
-
 //UI Logic
 $(document).ready(function() {
   $("#pizza-input").click(function(event) {
     let chosenSize = $("input:radio[name=size]:checked").val();
     let chosenToppings = $("option.toppings:selected").val();
-    let pizza = new Pizza(chosenSize, chosenToppings, 13);
+    let pizza = new Pizza(chosenSize, chosenToppings);
     pizza.finalCost();
     event.preventDefault();
     $("#pizzaSize").text(chosenSize);

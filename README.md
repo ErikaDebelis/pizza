@@ -23,65 +23,34 @@ Alternately, visit https://erikadebelis.github.io/pizza/
 
 ### __Tests/Specifications__
 
-_Describe PizzaPlanet()_
+_Describe Pizza()_
 
-1. Test: Create a constructor for an empty PizzaPlanet object that will hold an empty pizza array to eventually add to + currentId to keep track of pizzas eventually added to cart
+1. Test: Create a constructor for an empty Pizza object.
 Code: 
-function PizzaPlanet () {
-  this.pizza = {};
-  this.currentID = 0;
-Expected Output: PizzaPlanet{ } 
+let pizza = new Pizza(size: "large", toppings:"meatlovers")
+Expected Output: Pizza{ } 
 
-2. Test: Create a constructor for pizzas that will hold the ways the customer can customize the pizza (by size and toppings)
+2. Test: Create a constructor for pizzas that will hold the ways the customer can customize the pizza (by size and toppings) and define the base cost for a pizza as 13.
 Code: 
-function Pizza (size, toppings) {
-  this.chosenSize= size;
-  this.chosenToppings= toppings;
-}
-Output: Pizza { }
+let pizza = new Pizza(size: "large", toppings:"meatlovers")
+Expected Output: Pizza{size: "large", toppings:"meatlovers", cost: 13} 
+
+_Describe Pizza.prototype.finalCost = function () {_
+
+1. Test: Create a prototype for pizza's final cost. 
+Code: let pizza = new Pizza(size: "large", toppings:"meatlovers")
+Output: Pizza {size: "large", toppings:"meatlovers", cost: 13}
 
 
-_Describe Pizza ()_
+2. Test: Add logic and create branching statements for finalCost prototype that will determine the cost based on the size and topping selections made. Testing to see if price will increase based on large size input and meatlovers selections.
+Code: let pizza = new Pizza(size: "large", toppings:"meatlovers")
+          pizza.finalCost()
+Output: Pizza {size: "large", toppings:"meatlovers", cost: 22}
 
-1. Test: Create a prototype for pizzas that will create a custom method which then adds the customized pizza to cart 
-Code: 
-PizzaPlanet.prototype.addPizza = function (pizza) {
-  pizza.id = this.assignPizzaId();
-  this.pizzas[pizza.id] = pizza;
-}
-Output: Pizza { }
-
-
-2. Test: Create a prototype for pizzas that will create a custom method which then assigns an ID to the customized pizza in the cart
-Code: 
-PizzaPlanet.prototype.assignPizzaId = function () {
-  this.currentID += 1;
-  return this.currentID;
-}
-Output: Pizza { }
-
-
-3. Test: Create a prototype for pizzas that will create the formula for which the pricing is determined for the custom pizza based on the size and topping selections made
-Code: 
-PizzaPlanet.prototype.customizePizza = function () {
-  this.cost = 13;
-  if (chosenSize ==="small") {
-    this.cost -= 3;
-  }
-  if (chosenSize ==="large") {
-    this.cost += 4;
-  }
-  if (chosenToppings === "meatlovers") {
-    this.cost += 5;
-  }
-  if (chosenToppings === "veggie") {
-    this.cost += 2;
-  }
-};
-Output: Pizza { }
-
-1. create a constructor 
-_Describe UI logic for pizza()_
+3. Test: Add logic and create branching statements for finalCost prototype that will determine the cost based on the size and topping selections made. Testing to see if price will decrease based on small size input and margherita selections.
+Code: let pizza = new Pizza(size: "small", toppings:"margherita")
+          pizza.finalCost()
+Output: Pizza {size: "small", toppings:"margherita", cost: 10}
 
 ## Bugs
 
