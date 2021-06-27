@@ -26,39 +26,54 @@ Alternately, visit https://erikadebelis.github.io/pizza/
 _Describe Pizza()_
 
 1. Test: Create a constructor for an empty Pizza object.
-Code: 
-let pizza = new Pizza(size: "large", toppings:"meatlovers")
+
+Code: let pizza = new Pizza(size: "large", toppings:"meatlovers")
+
 Expected Output: Pizza{ } 
 
 2. Test: Create a constructor for pizzas that will hold the ways the customer can customize the pizza (by size and toppings) and define the base cost for a pizza as 13.
-Code: 
-let pizza = new Pizza(size: "large", toppings:"meatlovers")
+
+Code: let pizza = new Pizza(size: "large", toppings:"meatlovers")
+
 Expected Output: Pizza{size: "large", toppings:"meatlovers", cost: 13} 
 
 _Describe Pizza.prototype.finalCost = function () {_
 
 1. Test: Create a prototype for pizza's final cost. (no logic/ cost formula created yet).
+
 Code: let pizza = new Pizza(size: "large", toppings:"margherita")
+
 Output: Pizza {size: "large", toppings:"margherita", cost: 13}
 
 2. Test: Add logic and create branching statements for finalCost prototype that will determine the cost based on the size and topping selections made. Testing to see if price will increase based on large size input alone.
 Code: let pizza = new Pizza(size: "large", toppings:"margherita")
+
           pizza.finalCost()
+
 Output: Pizza {size: "large", toppings:"margherita", cost: 17}
 
 2. Test: Testing to see if price will increase based on toppings input alone.
+
 Code: let pizza = new Pizza(size: "medium", toppings:"veggie")
+
           pizza.finalCost()
+
 Output: Pizza {size: "medium", toppings:"veggie", cost: 15}
 
 3. Test: Testing to see if price will decrease based on small size input.
+
 Code: let pizza = new Pizza(size: "small", toppings:"margherita")
+
           pizza.finalCost()
+
 Output: Pizza {size: "small", toppings:"margherita", cost: 10}
 
 4. Test: Testing to see if price will decrease based on small size input and increase from topping selection.
+
 Code: let pizza = new Pizza(size: "small", toppings:"veggie")
+
           pizza.finalCost()
+
 Output: Pizza {size: "small", toppings:"veggie", cost: 12}
 
 ## Bugs
